@@ -1,0 +1,26 @@
+{% extends './layout.twig' %}
+
+{% set title = 'Article List' %}
+
+{% block body %}
+<div class="myDiv2">
+  <h1>Weather Conditions</h1>
+  <table>
+  <tr>
+    <th>Temperature</th>
+    <th>{{temperature}} K</th>
+  </tr>
+  <tr>
+    <th>Humidity</th>
+    <th>{{humidity}} %</th>
+  </tr>
+  <tr>
+    <th>Pressure</th>
+    <th>{{pressure}} mb</th>
+  </tr>
+
+</div>
+{% endblock %}
+
+{% block footerjs %}
+{% endblock %}

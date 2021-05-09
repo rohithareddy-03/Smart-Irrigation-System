@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>{{ title }}</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+		<!-- <link href="/stylesheets/font-awesome.min.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="/stylesheets/jquery-ui.min.css" />
+		<link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+		<link href="/stylesheets/AdminLTE.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+		<script src="jquery/jquery.js"></script>
+		<link href="/stylesheets/font-awesome.min.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="/stylesheets/jquery-ui.min.css" />
+		<!-- <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' /> -->
+		<script type="text/javascript" src='js/bootstrap.min.js'></script>
+		<link rel="stylesheet" href="css/bootstrap.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link href="/stylesheets/AdminLTE.css" rel="stylesheet" type="text/css" />
+
+		{% block headercss %} {% endblock %}
+		<link rel='stylesheet' href='/stylesheets/style.css' />
+	</head>
+	<body class="skin-blue">
+		{# <div class="wrapper row-offcanvas row-offcanvas-left">
+			<section class="content"> #}
+				<div class="topnav" id="myTopnav">
+					{% if user %}
+						<a href="/" {% if url == '/' %} class="active" {% endif %}>Home</a>
+						<!-- <a href="/npk" {% if url == '/npk' %} class="active" {% endif %}>Fertigation</a> -->
+						<a href="/weather" {% if url == '/weather' %} class="active" {% endif %}>Weather</a>
+						<div class="dropdown">
+							<button class="dropbtn">
+								Zones <i class="fa fa-caret-down"></i>
+							</button>
+							<div class="dropdown-content">
+								<a href="/zone">Banana Zone 1</a>
+    						<a href="/zone1">Banana Zone 2</a>
+							</div>
+						</div>
+						<a href="/cropdetails" {% if url == '/cropdetails' %} class="active" {% endif %}>Update Crop Details</a>
+						<a href="/userdetails" {% if url == '/userdetails' %} class="active" {% endif %}>User Details</a>
+						<a href="/logout">Logout</a>
+					{% else %}
+						<a href="/login" {% if url == '/login' %} class="active" {% endif %}>Login</a>
+						<a href="/register" {% if url == '/register' %} class="active" {% endif %}>Register</a>
+					{% endif %}
+					<a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+				</div>
+
+				{% if messages.success or messages.error %}
+					<div class="row">
+						<div class="col-lg-12"><br />
+							<div class="alert {% if messages.success %}alert-success{% else %}alert-danger{% endif %} alert-dismissable">
+								<button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+								{% if messages.success %}
+									<b>Success</b> {{messages.success}}
+								{% else %}
+									<b>Error</b> {{messages.error}}
+								{% endif %}
+							</div>
+						</div>
+					</div>
+				{% endif %}
+
+				{% block body %} {% endblock %}
+			{# </section>
+		</div> #}
+		<script src="/javascripts/jquery.min.js"></script>
+		<script src="/javascripts/bootstrap.min.js" type="text/javascript"></script>
+		<script src="/javascripts/jquery-ui.min.js" type="text/javascript"></script>
+		{% block footerjs %} {% endblock %}
+	</body>
+</html>

@@ -1,0 +1,35 @@
+{% extends './layout.twig' %}
+
+{% set title = 'Article List' %}
+
+{% block body %}
+	<div class="myDiv">
+		<h1>Smart Irrigation System</h1>
+		<table>
+	  <tr>
+	    <th>Power Status</th>
+	    <th>{{power}} </th>
+	  </tr>
+	  <tr>
+	    <th>Motor Status</th>
+	    <th>{{motor}} </th>
+	  </tr>
+	  <tr>
+	    <th>Water Flow rate</th>
+	    <th>{{water}} L/Hr</th>
+	  </tr>
+		<h2>Motor Control</h2>
+		<form method="post" id="on" action="/mqttOn">
+			<button type="submit" class="button" id="onbtn" style="cursor:pointer">ON</button>
+		</form>
+		<br/><br/>
+		<form method="post" id="off" action="/mqttOff">
+			<button type="submit" class="button" id="offbtn" style="cursor:pointer">OFF</button>
+		</form>
+		<br/>
+		<br/>
+	
+	  </div>
+{% endblock %}
+
+{% block footerjs %}{% endblock %}

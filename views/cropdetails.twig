@@ -1,0 +1,40 @@
+{% extends './layout.twig' %}
+
+{% set title = 'Article List' %}
+
+{% block body %}
+    <h3 class="box-title">Update Crop Details</h3>
+    <a href="/cropform" class="button" type="button">Add Crop</a>
+    <table>
+        <tr>
+            <th>Crop</th>
+            <th>No of Zones</th>
+            <th></th>
+            <th></th>
+        </tr>
+        {% for crop in user.children %}
+            <tr>
+                <td>{{crop.crops}}</td>
+                <td>{{crop.zones}}</td>
+                <td>
+                    <a href='/cropedit/{{crop._id}}'>
+                        <button type="button">edit</button>
+                    </a>
+                </td>
+                <td>
+                    <form method="post" action="/cropdelete/{{crop._id}}" onSubmit="return confirm('Do you want to delete?')">
+                        <button type="submit">delete</button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+        {% if user.children.length <=0 %}
+            <tr>
+                <td colspan='4' style='text-align: center;'>No Records found</td>
+            </tr>
+        {% endif %}
+    </table>
+{% endblock %}
+
+{% block footerjs %}
+{% endblock %}

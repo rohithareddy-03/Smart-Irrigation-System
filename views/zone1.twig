@@ -1,0 +1,22 @@
+{% extends './layout.twig' %}
+
+{% set title = 'Article List' %}
+
+{% block body %}
+	<div class="myDiv">
+		<h1>Smart Irrigation System</h1>
+		<table>
+	  <tr>
+		<th>Valve Status</th>
+		<th>{{valve}} </th>
+	</tr>
+	<tr>
+		<th>Soil Moisture Content</th>
+		<th>{{soil}} %</th>
+	  </tr>
+		<br/>
+		<br/>
+	</div>
+{% endblock %}
+
+{% block footerjs %}{% endblock %}

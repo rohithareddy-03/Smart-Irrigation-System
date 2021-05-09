@@ -1,0 +1,48 @@
+{% extends 'layout.twig' %}
+
+{% block headercss %}
+	<link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+	<link href="/stylesheets/font-awesome.min.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="/stylesheets/jquery-ui.min.css">
+	<link href="/stylesheets/AdminLTE.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% set title = 'Update Details' %}
+
+{% block body %}
+	<div class="row">
+		<div class="col-md-12">
+			<!-- general form elements -->
+			<div class="box box-primary">
+				<div class="box-header">
+					<h3 class="box-title">Update Details</h3>
+				</div><!-- /.box-header -->
+				<form method="post" id="edit" action="/userdetails">
+					<div class="box-body">
+						<div class="form-group">
+							<label for="email">Email</label>
+							<input required value="{{user.email}}" minlength="3" maxlength="40" type="email" name="email" class="form-control" placeholder="Email"/>
+						</div>
+						<div class="form-group">
+							<label for="password">Password</label>
+							<input value="{{user.password}}" minlength="3" maxlength="25" type="password" name="password" class="form-control" placeholder="Password"/>
+						</div>
+						<div class="form-group">
+							<label for="mobile">Mobile</label>
+							<input value="{{user.mobile}}" type="tel" name="mobile" class="form-control" placeholder="Mobile"/>
+						</div>
+						<div class="form-group">
+							<label for="location">Location</label>
+							<input value="{{user.location}}" minlength="3" maxlength="25" type="text" name="location" class="form-control" placeholder="Location"/>
+						</div>
+					</div>
+					<div class="box-footer">
+						<button type="submit" class="btn btn-primary">Update</button>
+						&nbsp;
+						<a href="/" class="btn btn-default">Cancel</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+{% endblock %}
